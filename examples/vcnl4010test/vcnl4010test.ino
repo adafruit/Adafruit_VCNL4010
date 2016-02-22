@@ -22,6 +22,6 @@ void setup() {
 
 void loop() {
    Serial.print("Ambient: "); Serial.println(vcnl.readAmbient());
-   Serial.print("Proimity: "); Serial.println(vcnl.readProximity());
+   Serial.print("Proximity: "); Serial.println(vcnl.readProximity());
    delay(100);
 }
