@@ -137,7 +137,6 @@ uint8_t Adafruit_VCNL4010::read8(uint8_t address)
   delayMicroseconds(170);  // delay required
 
   Wire.requestFrom(_i2caddr, (uint8_t)1);
-  while(!Wire.available());
 
 #if ARDUINO >= 100
   return Wire.read();

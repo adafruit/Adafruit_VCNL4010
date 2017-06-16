@@ -3,11 +3,6 @@
 
 Adafruit_VCNL4010 vcnl;
 
-#if defined(ARDUINO_ARCH_SAMD)
-// for Zero, output on USB Serial console, remove line below if using programming port to program the Zero!
-   #define Serial SerialUSB
-#endif
-
 void setup() {
   Serial.begin(9600);
   Serial.println("VCNL4010 test");
