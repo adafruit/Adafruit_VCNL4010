@@ -10,7 +10,9 @@ Adafruit_VCNL4010::Adafruit_VCNL4010() {
 
 /**************************************************************************/
 /*! 
-    @brief  Setups the HW
+    @brief  Setups the I2C connection and tests that the sensor was found. If so, configures for 200mA IR current and 390.625 KHz.
+    @param addr Optional I2C address (however, all chips have the same address!)
+    @return true if sensor was found, false if not 
 */
 /**************************************************************************/
 boolean Adafruit_VCNL4010::begin(uint8_t addr) {
@@ -23,8 +25,8 @@ boolean Adafruit_VCNL4010::begin(uint8_t addr) {
     return false;
   }
   
-  setLEDcurrent(20);
-  setFrequency(VCNL4010_390K625);
+  setLEDcurrent(20);   // 200 mA
+  setFrequency(VCNL4010_16_625); // 16.625 readings/second
 
   write8(VCNL4010_INTCONTROL, 0x08);
   return true;
@@ -33,14 +35,22 @@ boolean Adafruit_VCNL4010::begin(uint8_t addr) {
 
 /**************************************************************************/
 /*! 
-    @brief  Get and set the LED current draw
+    @brief  Set the LED current.
+    @param  current_10mA  Can be any value from 0 to 20, each number represents 10 mA, so if you set it to 5, its 50mA. Minimum is 0 (0 mA, off), max is 20 (200mA)
 */
 /**************************************************************************/
 
-void Adafruit_VCNL4010::setLEDcurrent(uint8_t c) {
-  if (c > 20) c = 20;
-  write8(VCNL4010_IRLED, c);
+void Adafruit_VCNL4010::setLEDcurrent(uint8_t current_10mA) {
+  if (current_10mA > 20) current_10mA = 20;
+  write8(VCNL4010_IRLED, current_10mA);
 }
+
+/**************************************************************************/
+/*! 
+    @brief  Get the LED current
+    @return  The value directly from the register. Each bit represents 10mA so 5 == 50mA
+*/
+/**************************************************************************/
 
 uint8_t Adafruit_VCNL4010::getLEDcurrent(void) {
   return read8(VCNL4010_IRLED);
@@ -48,21 +58,20 @@ uint8_t Adafruit_VCNL4010::getLEDcurrent(void) {
 
 /**************************************************************************/
 /*! 
-    @brief  Get and set the measurement signal frequency
+    @brief  Set the measurement signal frequency
+    @param  freq Sets the measurement rate for proximity. Can be VCNL4010_1_95 (1.95 measurements/s), VCNL4010_3_90625 (3.9062 meas/s), VCNL4010_7_8125 (7.8125 meas/s), VCNL4010_16_625 (16.625 meas/s), VCNL4010_31_25 (31.25 meas/s), VCNL4010_62_5 (62.5 meas/s), VCNL4010_125 (125 meas/s) or VCNL4010_250 (250 measurements/s)
 */
 /**************************************************************************/
 
-void Adafruit_VCNL4010::setFrequency(vcnl4010_freq f) {
-  uint8_t r =  read8(VCNL4010_MODTIMING);
-  r &= ~(0b00011000);
-  r |= f << 3;
-  write8(VCNL4010_MODTIMING, r);
+void Adafruit_VCNL4010::setFrequency(vcnl4010_freq freq) {
+  write8(VCNL4010_MODTIMING, freq);
 }
 
 
 /**************************************************************************/
 /*! 
     @brief  Get proximity measurement
+    @return Raw 16-bit reading value, will vary with LED current, unit-less!
 */
 /**************************************************************************/
 
@@ -82,6 +91,13 @@ uint16_t  Adafruit_VCNL4010::readProximity(void) {
     delay(1);
   }
 }
+
+/**************************************************************************/
+/*! 
+    @brief  Get ambient light measurement
+    @return Raw 16-bit reading value, unit-less!
+*/
+/**************************************************************************/
 
 uint16_t  Adafruit_VCNL4010::readAmbient(void) {
   uint8_t i = read8(VCNL4010_INTSTAT);

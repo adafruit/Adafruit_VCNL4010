@@ -43,10 +43,14 @@
 
 typedef enum
   {
-    VCNL4010_3M125   = 3,
-    VCNL4010_1M5625  = 2,
-    VCNL4010_781K25  = 1,
-    VCNL4010_390K625 = 0,
+    VCNL4010_1_95    = 0,
+    VCNL4010_3_90625 = 1,
+    VCNL4010_7_8125  = 2,
+    VCNL4010_16_625  = 3,
+    VCNL4010_31_25   = 4,
+    VCNL4010_62_5    = 5,
+    VCNL4010_125     = 6,
+    VCNL4010_250     = 7,
   } vcnl4010_freq;
 
 #define VCNL4010_MEASUREAMBIENT 0x10

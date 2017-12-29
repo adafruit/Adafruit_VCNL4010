@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['readproximity',['readProximity',['../class_adafruit___v_c_n_l4010.html#a4cfeee5878c32dd421379d9e91ed5be4',1,'Adafruit_VCNL4010']]]
+  ['getledcurrent',['getLEDcurrent',['../class_adafruit___v_c_n_l4010.html#a487e8fc035a2f14d61a469b5f7fa1948',1,'Adafruit_VCNL4010']]]
 ];
