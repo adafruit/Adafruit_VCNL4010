@@ -140,45 +140,29 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a785292c777e04d947e03da9a573ed42a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a785292c777e04d947e03da9a573ed42a">&#9670;&nbsp;</a></span>readAmbient()</h2>
+<a id="a47a4235a24e93c473b3efe96c3e7809d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47a4235a24e93c473b3efe96c3e7809d">&#9670;&nbsp;</a></span>setLEDcurrent()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Adafruit_VCNL4010::readAmbient </td>
+          <td class="memname">void Adafruit_VCNL4010::setLEDcurrent </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>current_10mA</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Get ambient light measurement. </p>
-<dl class="section return"><dt>Returns</dt><dd>Raw 16-bit reading value, unit-less! </dd></dl>
-
-</div>
-</div>
-<a id="a4cfeee5878c32dd421379d9e91ed5be4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cfeee5878c32dd421379d9e91ed5be4">&#9670;&nbsp;</a></span>readProximity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t Adafruit_VCNL4010::readProximity </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get proximity measurement. </p>
-<dl class="section return"><dt>Returns</dt><dd>Raw 16-bit reading value, will vary with LED current, unit-less! </dd></dl>
+<p>Set the LED current. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">current_10mA</td><td>Can be any value from 0 to 20, each number represents 10 mA, so if you set it to 5, its 50mA. Minimum is 0 (0 mA, off), max is 20 (200mA) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -208,29 +192,45 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a47a4235a24e93c473b3efe96c3e7809d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47a4235a24e93c473b3efe96c3e7809d">&#9670;&nbsp;</a></span>setLEDcurrent()</h2>
+<a id="a4cfeee5878c32dd421379d9e91ed5be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cfeee5878c32dd421379d9e91ed5be4">&#9670;&nbsp;</a></span>readProximity()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Adafruit_VCNL4010::setLEDcurrent </td>
+          <td class="memname">uint16_t Adafruit_VCNL4010::readProximity </td>
           <td>(</td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>current_10mA</em></td><td>)</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the LED current. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">current_10mA</td><td>Can be any value from 0 to 20, each number represents 10 mA, so if you set it to 5, its 50mA. Minimum is 0 (0 mA, off), max is 20 (200mA) </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Get proximity measurement. </p>
+<dl class="section return"><dt>Returns</dt><dd>Raw 16-bit reading value, will vary with LED current, unit-less! </dd></dl>
+
+</div>
+</div>
+<a id="a785292c777e04d947e03da9a573ed42a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a785292c777e04d947e03da9a573ed42a">&#9670;&nbsp;</a></span>readAmbient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Adafruit_VCNL4010::readAmbient </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get ambient light measurement. </p>
+<dl class="section return"><dt>Returns</dt><dd>Raw 16-bit reading value, unit-less! </dd></dl>
 
 </div>
 </div>
