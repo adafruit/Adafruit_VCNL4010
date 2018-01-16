@@ -24,6 +24,7 @@
 #endif
 
 #include <Wire.h>
+#include "VCNL4010_Int.h"
 
 // the i2c address
 #define VCNL4010_I2CADDR_DEFAULT 0x13
@@ -37,12 +38,13 @@
 #define VCNL4010_AMBIENTDATA 0x85
 #define VCNL4010_PROXIMITYDATA 0x87
 #define VCNL4010_INTCONTROL 0x89
-#define VCNL4010_PROXINITYADJUST 0x8A
+#define VCNL4010_LOW_THRESHOLD 0x8A
+#define VCNL4010_HIGH_THRESHOLD 0x8C
 #define VCNL4010_INTSTAT 0x8E
 #define VCNL4010_MODTIMING 0x8F
 
 typedef enum
-  {
+{
     VCNL4010_1_95    = 0,
     VCNL4010_3_90625 = 1,
     VCNL4010_7_8125  = 2,
@@ -51,7 +53,7 @@ typedef enum
     VCNL4010_62_5    = 5,
     VCNL4010_125     = 6,
     VCNL4010_250     = 7,
-  } vcnl4010_freq;
+} vcnl4010_freq;
 
 #define VCNL4010_MEASUREAMBIENT 0x10
 #define VCNL4010_MEASUREPROXIMITY 0x08
@@ -69,10 +71,20 @@ class Adafruit_VCNL4010 {
   void setFrequency(vcnl4010_freq f);
   uint16_t readProximity(void);
   uint16_t readAmbient(void);
+  
+  void startHiLoInt(vcnl4010_int_t select, uint16_t low_threshold,
+                      uint16_t high_threshold, vcnl4010_count_t count_exceeed);
+
+  void startHiLoInt(vcnl4010_int_t select, uint16_t low_threshold,
+                      uint16_t high_threshold);
+                      
+  VCNL4010_Int getInterrupt();
+  void clearInterrupt();
 
  private:
 
   void write8(uint8_t address, uint8_t data);
+  void write16(uint8_t address, uint16_t data);
   uint16_t read16(uint8_t address);
   uint8_t read8(uint8_t address);
 
