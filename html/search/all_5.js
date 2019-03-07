@@ -1,0 +1,21 @@
+var searchData=
+[
+  ['vcnl4010_5fambientdata',['VCNL4010_AMBIENTDATA',['../_adafruit___v_c_n_l4010_8h.html#a10a21ce25c4154b8ca606f0377fd0c52',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fambientparameter',['VCNL4010_AMBIENTPARAMETER',['../_adafruit___v_c_n_l4010_8h.html#aa74d89f9930426971c657729921affa6',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fambientready',['VCNL4010_AMBIENTREADY',['../_adafruit___v_c_n_l4010_8h.html#a7217178bcfba7929cfc83a7d07b640a6',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fcommand',['VCNL4010_COMMAND',['../_adafruit___v_c_n_l4010_8h.html#ab73f724306956fee8b25118170b2396f',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5ffreq',['vcnl4010_freq',['../_adafruit___v_c_n_l4010_8h.html#aa63b25d1fdc834c0577362f49dec034d',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fhithreshold',['VCNL4010_HITHRESHOLD',['../_adafruit___v_c_n_l4010_8h.html#a72ba920e8f086b4356f875b0bb1dd731',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fi2caddr_5fdefault',['VCNL4010_I2CADDR_DEFAULT',['../_adafruit___v_c_n_l4010_8h.html#a753416dc31e232769cc53d1a6e28a322',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fintcontrol',['VCNL4010_INTCONTROL',['../_adafruit___v_c_n_l4010_8h.html#ac470e0d1ef99aa6b719ac945b22cbf0f',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fintstat',['VCNL4010_INTSTAT',['../_adafruit___v_c_n_l4010_8h.html#ad5567c2328833f89653d5ddeaa553123',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5firled',['VCNL4010_IRLED',['../_adafruit___v_c_n_l4010_8h.html#a5a39dd92ee19a4821b2d6e3cb83c06f5',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5flowthreshold',['VCNL4010_LOWTHRESHOLD',['../_adafruit___v_c_n_l4010_8h.html#aadcb344d6b60f589257e124690603bea',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fmeasureambient',['VCNL4010_MEASUREAMBIENT',['../_adafruit___v_c_n_l4010_8h.html#a8baec9021f4c5882d6206688252f8f19',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fmeasureproximity',['VCNL4010_MEASUREPROXIMITY',['../_adafruit___v_c_n_l4010_8h.html#a42b9bcacdcd6ad1b8d950bdde0f9b97d',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fmodtiming',['VCNL4010_MODTIMING',['../_adafruit___v_c_n_l4010_8h.html#a1030f411a63e2b79d043bc2119636bc0',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fproductid',['VCNL4010_PRODUCTID',['../_adafruit___v_c_n_l4010_8h.html#a75a13733ecc07178a197f03439d83f76',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fproximitydata',['VCNL4010_PROXIMITYDATA',['../_adafruit___v_c_n_l4010_8h.html#a224c40646b09e3bbf9e6b48e0b72eb1c',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fproximityready',['VCNL4010_PROXIMITYREADY',['../_adafruit___v_c_n_l4010_8h.html#a01c8658ac2831bbc3976b3e3552b739c',1,'Adafruit_VCNL4010.h']]],
+  ['vcnl4010_5fproxrate',['VCNL4010_PROXRATE',['../_adafruit___v_c_n_l4010_8h.html#a2cbe05bab111faf6807615a2bd36b9f2',1,'Adafruit_VCNL4010.h']]]
+];
