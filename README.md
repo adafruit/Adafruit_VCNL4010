@@ -1,4 +1,4 @@
-# Adafruit_VCNL4010 [![Build Status](https://travis-ci.com/adafruit/Adafruit_VCNL4010.svg?branch=master)](https://travis-ci.com/adafruit/Adafruit_VCNL4010)
+# Adafruit VCNL4010 Library[![Build Status](https://github.com/adafruit/Adafruit_VCNL4010/workflows/Arduino%20Library%20CI/badge.svg)](https://github.com/adafruit/Adafruit_VCNL4010/actions)
 
 This is the Adafruit VCNL4010 Proximity I2C sensor library
 
