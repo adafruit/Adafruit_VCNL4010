@@ -43,9 +43,11 @@ Adafruit_VCNL4010::Adafruit_VCNL4010() {}
 */
 /**************************************************************************/
 boolean Adafruit_VCNL4010::begin(uint8_t addr, TwoWire *theWire) {
-  _i2caddr = addr;
-  _wire = theWire;
-  _wire->begin();
+  if (i2c_dev)
+    delete i2c_dev;
+  i2c_dev = new Adafruit_I2CDevice(addr, theWire);
+  if (!i2c_dev->begin())
+    return false;
 
   uint8_t rev = read8(VCNL4010_PRODUCTID);
   // Serial.println(rev, HEX);
@@ -156,68 +158,20 @@ uint16_t Adafruit_VCNL4010::readAmbient(void) {
 
 // Read 1 byte from the VCNL4000 at 'address'
 uint8_t Adafruit_VCNL4010::read8(uint8_t address) {
-  uint8_t data;
-
-  _wire->beginTransmission(_i2caddr);
-#if ARDUINO >= 100
-  _wire->write(address);
-#else
-  _wire->send(address);
-#endif
-  _wire->endTransmission();
-
-  delayMicroseconds(170); // delay required
-
-  _wire->requestFrom(_i2caddr, (uint8_t)1);
-
-#if ARDUINO >= 100
-  return _wire->read();
-#else
-  return _wire->receive();
-#endif
+  uint8_t buffer[1] = {address};
+  i2c_dev->write_then_read(buffer, 1, buffer, 1);
+  return buffer[0];
 }
 
 // Read 2 byte from the VCNL4000 at 'address'
 uint16_t Adafruit_VCNL4010::read16(uint8_t address) {
-  uint16_t data;
-
-  _wire->beginTransmission(_i2caddr);
-#if ARDUINO >= 100
-  _wire->write(address);
-#else
-  _wire->send(address);
-#endif
-  _wire->endTransmission();
-
-  _wire->requestFrom(_i2caddr, (uint8_t)2);
-  while (!_wire->available())
-    ;
-#if ARDUINO >= 100
-  data = _wire->read();
-  data <<= 8;
-  while (!_wire->available())
-    ;
-  data |= _wire->read();
-#else
-  data = _wire->receive();
-  data <<= 8;
-  while (!_wire->available())
-    ;
-  data |= _wire->receive();
-#endif
-
-  return data;
+  uint8_t buffer[2] = {address, 0};
+  i2c_dev->write_then_read(buffer, 1, buffer, 2);
+  return (uint16_t(buffer[0]) << 8) | uint16_t(buffer[1]);
 }
 
 // write 1 byte
 void Adafruit_VCNL4010::write8(uint8_t address, uint8_t data) {
-  _wire->beginTransmission(_i2caddr);
-#if ARDUINO >= 100
-  _wire->write(address);
-  _wire->write(data);
-#else
-  _wire->send(address);
-  _wire->send(data);
-#endif
-  _wire->endTransmission();
+  uint8_t buffer[2] = {address, data};
+  i2c_dev->write(buffer, 2);
 }
