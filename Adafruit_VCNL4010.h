@@ -23,7 +23,7 @@
 #include "WProgram.h"
 #endif
 
-#include <Wire.h>
+#include <Adafruit_I2CDevice.h>
 
 #define VCNL4010_I2CADDR_DEFAULT 0x13 ///< I2C address of the sensor
 
@@ -86,6 +86,5 @@ private:
   uint16_t read16(uint8_t address);
   uint8_t read8(uint8_t address);
 
-  uint8_t _i2caddr;
-  TwoWire *_wire;
+  Adafruit_I2CDevice *i2c_dev = NULL; ///< Pointer to I2C bus interface
 };
