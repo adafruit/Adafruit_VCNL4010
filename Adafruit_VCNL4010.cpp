@@ -124,7 +124,7 @@ uint16_t Adafruit_VCNL4010::readProximity(void) {
       return read16(VCNL4010_PROXIMITYDATA);
     }
     delay(1);
-  } while (READING_WAIT_TIME < millis() - startTime)
+  } while (READING_WAIT_TIME < millis() - startTime);
   return 0;
 }
 
@@ -150,7 +150,7 @@ uint16_t Adafruit_VCNL4010::readAmbient(void) {
       return read16(VCNL4010_AMBIENTDATA);
     }
     delay(1);
-  } while (READING_WAIT_TIME < millis() - startTime)
+  } while (READING_WAIT_TIME < millis() - startTime);
   return 0;
 }
 
