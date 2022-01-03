@@ -27,6 +27,8 @@
 
 #include <Adafruit_I2CDevice.h>
 
+#define READING_WAIT_TIME 1000
+
 #define VCNL4010_I2CADDR_DEFAULT 0x13 ///< I2C address of the sensor
 
 /** Registers */
