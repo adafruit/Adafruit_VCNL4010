@@ -16,6 +16,8 @@
   v1.0  - First release
 */
 /**************************************************************************/
+#ifndef ADAFRUIT_VCNL4010
+#define ADAFRUIT_VCNL4010
 
 #if ARDUINO >= 100
 #include "Arduino.h"
@@ -24,6 +26,8 @@
 #endif
 
 #include <Adafruit_I2CDevice.h>
+
+#define READING_WAIT_TIME 1000
 
 #define VCNL4010_I2CADDR_DEFAULT 0x13 ///< I2C address of the sensor
 
@@ -88,3 +92,5 @@ private:
 
   Adafruit_I2CDevice *i2c_dev = NULL; ///< Pointer to I2C bus interface
 };
+
+#endif /* ADAFRUIT_VCNL4010 */

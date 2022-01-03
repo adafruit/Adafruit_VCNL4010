@@ -115,7 +115,8 @@ uint16_t Adafruit_VCNL4010::readProximity(void) {
   write8(VCNL4010_INTSTAT, i);
 
   write8(VCNL4010_COMMAND, VCNL4010_MEASUREPROXIMITY);
-  while (1) {
+  const unsigned long startTime = millis();
+  do {
     // Serial.println(read8(VCNL4010_INTSTAT), HEX);
     uint8_t result = read8(VCNL4010_COMMAND);
     // Serial.print("Ready = 0x"); Serial.println(result, HEX);
@@ -123,7 +124,8 @@ uint16_t Adafruit_VCNL4010::readProximity(void) {
       return read16(VCNL4010_PROXIMITYDATA);
     }
     delay(1);
-  }
+  } while (READING_WAIT_TIME < millis() - startTime);
+  return 0;
 }
 
 /**************************************************************************/
@@ -139,7 +141,8 @@ uint16_t Adafruit_VCNL4010::readAmbient(void) {
   write8(VCNL4010_INTSTAT, i);
 
   write8(VCNL4010_COMMAND, VCNL4010_MEASUREAMBIENT);
-  while (1) {
+  const unsigned long startTime = millis();
+  do {
     // Serial.println(read8(VCNL4010_INTSTAT), HEX);
     uint8_t result = read8(VCNL4010_COMMAND);
     // Serial.print("Ready = 0x"); Serial.println(result, HEX);
@@ -147,7 +150,8 @@ uint16_t Adafruit_VCNL4010::readAmbient(void) {
       return read16(VCNL4010_AMBIENTDATA);
     }
     delay(1);
-  }
+  } while (READING_WAIT_TIME < millis() - startTime);
+  return 0;
 }
 
 /**************************************************************************/
