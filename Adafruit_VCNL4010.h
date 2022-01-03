@@ -16,6 +16,8 @@
   v1.0  - First release
 */
 /**************************************************************************/
+#ifndef ADAFRUIT_VCNL4010
+#define ADAFRUIT_VCNL4010
 
 #if ARDUINO >= 100
 #include "Arduino.h"
@@ -88,3 +90,5 @@ private:
 
   Adafruit_I2CDevice *i2c_dev = NULL; ///< Pointer to I2C bus interface
 };
+
+#endif /* ADAFRUIT_VCNL4010 */
